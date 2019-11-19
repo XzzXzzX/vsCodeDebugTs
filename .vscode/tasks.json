@@ -1,0 +1,24 @@
+{ // 有关 tasks.json 格式的文档，请参见
+    // https://go.microsoft.com/fwlink/?LinkId=733558
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Test1",
+            "type": "shell",
+            "command": "tsc",
+            //-p 指定目录；-w watch,检测文件改变自动编译
+            "args": [
+                "-p",
+                ".",
+                "-w"
+            ],
+            "presentation": {
+                "reveal": "always",
+            },
+            "problemMatcher": [
+                "$tsc"
+            ]
+        }
+    ],
+    "cwd": "${workspaceRoot}",
+}
