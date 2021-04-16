@@ -188,7 +188,7 @@ testPromise();
 
 
 
-function encodeUTF8(s) {
+function encodeUTF8(s: any) {
     var i, r = [], c, x;
     for (i = 0; i < s.length; i++)
         if ((c = s.charCodeAt(i)) < 0x80) r.push(c);
@@ -207,12 +207,12 @@ function encodeUTF8(s) {
 function sha1(s: any) {
     var data = new Uint8Array(encodeUTF8(s))
     var i, j, t;
-    var l = ((data.length + 8) >>> 6 << 4) + 16, s = new Uint8Array(l << 2);
+    var l = ((data.length + 8) >>> 6 << 4) + 16, s: any = new Uint8Array(l << 2);
     s.set(new Uint8Array(data.buffer)), s = new Uint32Array(s.buffer);
     for (t = new DataView(s.buffer), i = 0; i < l; i++)s[i] = t.getUint32(i << 2);
     s[data.length >> 2] |= 0x80 << (24 - (data.length & 3) * 8);
     s[l - 1] = data.length << 3;
-    var w = [], f = [
+    var w: any = [], f: any = [
         function () { return m[1] & m[2] | ~m[1] & m[3]; },
         function () { return m[1] ^ m[2] ^ m[3]; },
         function () { return m[1] & m[2] | m[1] & m[3] | m[2] & m[3]; },
@@ -248,4 +248,13 @@ let data = {
     "avatarUrl": "http://wx.qlogo.cn/mmopen/vi_32/1vZvI39NWFQ9XM4LtQpFrQJ1xlgZxx3w7bQxKARol6503Iuswjjn6nIGBiaycAjAtpujxyzYsrztuuICqIM5ibXQ/0"
 };
 let str = JSON.stringify(data) + 'HyVFkGl5F5OQWJZZaNzBBg==';
-console.log('===> sha: ', sha1(str));
+// console.log('===> sha: ', sha1(str));
+
+for (let i = 0, l = 3; i < l; i++) {
+    for (let j = 0, ll = 3; j < ll; j++) {
+        console.log('====> j: ', j);
+        if (j == 1) break;
+    }
+    console.log('----> i: ', i);
+}
+

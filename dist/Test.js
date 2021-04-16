@@ -271,5 +271,13 @@ var data = {
     "avatarUrl": "http://wx.qlogo.cn/mmopen/vi_32/1vZvI39NWFQ9XM4LtQpFrQJ1xlgZxx3w7bQxKARol6503Iuswjjn6nIGBiaycAjAtpujxyzYsrztuuICqIM5ibXQ/0"
 };
 var str = JSON.stringify(data) + 'HyVFkGl5F5OQWJZZaNzBBg==';
-console.log('===> sha: ', sha1(str));
+// console.log('===> sha: ', sha1(str));
+for (var i = 0, l = 3; i < l; i++) {
+    for (var j = 0, ll = 3; j < ll; j++) {
+        console.log('====> j: ', j);
+        if (j == 1)
+            break;
+    }
+    console.log('----> i: ', i);
+}
 //# sourceMappingURL=Test.js.map
